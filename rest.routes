@@ -1,0 +1,18 @@
+GET http://localhost:3000 HTTP/1.1
+
+### GET ORDER BY ORDER NUMBER
+GET http://localhost:3000/orders HTTP/1.1
+// Will need to add number after "orders"
+
+### GET ALL ORDERS
+GET http://localhost:3000/orders HTTP/1.1
+
+### GET ORDER BY CUSTOMER LAST NAME
+GET http://localhost:3000/clients HTTP/1.1
+// Will need to add customer last name after "clients"
+
+### GET ALL CUSTOMERS 
+GET http://localhost:3000/clients HTTP/1.1
+
+### CREATE CUSTOMER
+POST http://localhost:3000/clients HTTP/1.1
