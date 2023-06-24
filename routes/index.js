@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-router.use('/menu', require('./menu'))
+router.use('/ cakes', require('./cakes'))
 
 module.exports = router;
