@@ -3,7 +3,7 @@ GET http://localhost:3000 HTTP/1.1
 // ORDERS
 
 ### GET ORDER BY ORDER NUMBER
-GET http://localhost:3000/orders HTTP/1.1
+GET http://localhost:3000/orders/649094b4818e12a88f758e71 HTTP/1.1
 // Will need to add number after "orders"
 
 ### GET ALL ORDERS
