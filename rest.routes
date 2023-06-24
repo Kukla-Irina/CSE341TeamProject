@@ -48,4 +48,10 @@ PUT http://localhost:3000/sweets/ HTTP/1.1
 ### DELETE CAKE
 DELETE http://localhost:3000/sweets/ HTTP/1.1
 
+//RENDER
 
+### GET ORDERS
+GET https://cse341teamproject.onrender.com/orders HTTP/1.1
+
+### GET ORDER BY ORDER NUMBER
+GET https://cse341teamproject.onrender.com/orders/649094b4818e12a88f758e71 HTTP/1.1
