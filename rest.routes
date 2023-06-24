@@ -1,5 +1,7 @@
 GET http://localhost:3000 HTTP/1.1
 
+// ORDERS
+
 ### GET ORDER BY ORDER NUMBER
 GET http://localhost:3000/orders HTTP/1.1
 // Will need to add number after "orders"
@@ -7,12 +9,43 @@ GET http://localhost:3000/orders HTTP/1.1
 ### GET ALL ORDERS
 GET http://localhost:3000/orders HTTP/1.1
 
-### GET ORDER BY CUSTOMER LAST NAME
-GET http://localhost:3000/clients HTTP/1.1
-// Will need to add customer last name after "clients"
+### DELETE ORDER
+DELETE http://localhost:3000/orders/ HTTP/1.1
 
-### GET ALL CUSTOMERS 
-GET http://localhost:3000/clients HTTP/1.1
+// CLIENTS
 
-### CREATE CUSTOMER
+### CREATE CLIENT
 POST http://localhost:3000/clients HTTP/1.1
+
+### GET ORDER BY CLIENT LAST NAME
+GET http://localhost:3000/clients/ HTTP/1.1
+
+### GET ALL CLIENTS 
+GET http://localhost:3000/clients HTTP/1.1
+
+### DELETE CLIENT
+DELETE http://localhost:3000/clients/ HTTP/1.1
+
+// CAKES
+
+### CREATE CAKE
+POST http://localhost:3000/cakes HTTP/1.1
+
+### UPDATE CAKE
+PUT http://localhost:3000/cakes/ HTTP/1.1
+
+### DELETE CAKE
+DELETE http://localhost:3000/cakes/ HTTP/1.1
+
+// SWEETS
+
+### CREATE SWEET
+POST http://localhost:3000/sweets HTTP/1.1
+
+### UPDATE CAKE
+PUT http://localhost:3000/sweets/ HTTP/1.1
+
+### DELETE CAKE
+DELETE http://localhost:3000/sweets/ HTTP/1.1
+
+
