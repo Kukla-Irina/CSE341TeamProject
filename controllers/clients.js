@@ -22,4 +22,52 @@ const getSingle = async (req, res) => {
   });
 };
 
-module.exports = { getAll, getSingle };
+const createClient = async (req, res) => {
+  const client = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    address: req.body.address
+  };
+  const response = await mongodb.getDb().db('bakery').collection('clients').insertOne(client);
+  if (response.acknowledged) {
+    res.status(201).json(response);
+  } else {
+    res.status(500).json(response.error || 'Some error occurred while creating the client.');
+  }
+};
+
+const updateClient = async (req, res) => {
+  const clientId = new ObjectId(req.params.id);
+  // be aware of updateOne if you only want to update specific fields
+  const client = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    address: req.body.address
+  };
+  const response = await mongodb
+    .getDb()
+    .db('bakery')
+    .collection('clients')
+    .replaceOne({ _id: clientId }, client);
+  console.log(response);
+  if (response.modifiedCount > 0) {
+    res.status(204).send();
+  } else {
+    res.status(500).json(response.error || 'An error occurred while updating the client.');
+  }
+};
+
+const deleteClient = async (req, res) => {
+  const clientId = new ObjectId(req.params.id);
+  const response = await mongodb.getDb().db('bakery').collection('clients').remove({ _id: clientId }, true);
+  console.log(response);
+  if (response.deletedCount > 0) {
+    res.status(204).send();
+  } else {
+    res.status(500).json(response.error || 'An error occurred while deleting the client.');
+  }
+};
+
+module.exports = { getAll, getSingle, createClient, updateClient, deleteClient };
