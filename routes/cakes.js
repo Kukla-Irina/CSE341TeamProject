@@ -11,6 +11,6 @@ router.get('/:id', cakesController.getSingle);
 
 // router.get('/:id', cakesController.updateCakeItem);
 
-// router.delete('/:id', cakesController.deleteCakeItem);
+router.delete('/:id', cakesController.deleteCake);
 
 module.exports = router;

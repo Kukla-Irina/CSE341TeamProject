@@ -67,7 +67,7 @@ const updateCake = async (req, res) => {
 
 const deleteCake = async (req, res) => {
   const cakeId = new ObjectId(req.params.id);
-  const response = await mongodb.getDb().db('bakery').collection('cakes').remove({ _id: cakeId }, true);
+  const response = await mongodb.getDb().db('bakery').collection('cakes').deleteOne({ _id: cakeId }, true);
   console.log(response);
   if (response.deletedCount > 0) {
     res.status(204).send();

@@ -57,7 +57,7 @@ const createSweet = async (req, res) => {
   
   const deleteSweet = async (req, res) => {
     const sweetId = new ObjectId(req.params.id);
-    const response = await mongodb.getDb().db('bakery').collection('sweets').remove({ _id: sweetId }, true);
+    const response = await mongodb.getDb().db('bakery').collection('sweets').deleteOne({ _id: sweetId }, true);
     console.log(response);
     if (response.deletedCount > 0) {
       res.status(204).send();

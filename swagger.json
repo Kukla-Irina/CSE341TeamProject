@@ -5,10 +5,10 @@
     "description": "Bakery app that allows customers to place orders for cakes and sweets",
     "version": "1.0.0"
   },
-  "host": "cse341teamproject.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/api-docs": {
@@ -53,7 +53,25 @@
             "description": "OK"
           }
         }
-      }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }}
     },
     "/clients/": {
       "get": {
@@ -87,7 +105,25 @@
             "description": "OK"
           }
         }
-      }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }}
     },
     "/orders/": {
       "get": {
@@ -121,7 +157,25 @@
             "description": "OK"
           }
         }
-      }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }}
     },
     "/sweets/": {
       "get": {
@@ -155,7 +209,25 @@
             "description": "OK"
           }
         }
-      }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }}
     }
   }
 }

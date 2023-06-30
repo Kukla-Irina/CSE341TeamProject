@@ -5,8 +5,8 @@ const doc = {
         title: 'Bakery API',
         description: 'Bakery app that allows customers to place orders for cakes and sweets'
     },
-    host: 'cse341teamproject.onrender.com',
-    schemes: ['https']
+    host: 'localhost:3000',
+    schemes: ['http']
 };
 
 const outputFile = './swagger.json';

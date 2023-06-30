@@ -14,17 +14,30 @@ DELETE http://localhost:3000/orders/ HTTP/1.1
 
 // CLIENTS
 
-### CREATE CLIENT
-POST http://localhost:3000/clients HTTP/1.1
+### Create contact 
+POST http://localhost:3030/clients HTTP/1.1
 
-### GET ORDER BY CLIENT LAST NAME
-GET http://localhost:3000/clients/ HTTP/1.1
+content-type: application/json
+{
+    "firstName": "Anna",
+    "address": "best place",
+    "email": "anna@mail.ru",
+    "phone": "89093457534",
+    "lastName": "Smirnova",
+}
+
+
+### GET CLIENT BY CLIENT LAST NAME
+GET http://localhost:3000/clients/Petrova HTTP/1.1
 
 ### GET ALL CLIENTS 
 GET http://localhost:3000/clients HTTP/1.1
 
 ### DELETE CLIENT
-DELETE http://localhost:3000/clients/ HTTP/1.1
+DELETE http://localhost:3000/clients/64909485818e12a88f758e6b HTTP/1.1
+
+### GET CLIENT BY ID
+GET http://localhost:3000/clients/64909485818e12a88f758e6b HTTP/1.1
 
 // CAKES
 

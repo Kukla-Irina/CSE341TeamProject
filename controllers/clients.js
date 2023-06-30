@@ -25,9 +25,10 @@ const getSingle = async (req, res) => {
 const createClient = async (req, res) => {
   const client = {
     firstName: req.body.firstName,
-    lastName: req.body.lastName,
+    address: req.body.address,
     email: req.body.email,
-    address: req.body.address
+    phone: req.body.phone,
+    lastName: req.body.lastName,
   };
   const response = await mongodb.getDb().db('bakery').collection('clients').insertOne(client);
   if (response.acknowledged) {
@@ -61,7 +62,7 @@ const updateClient = async (req, res) => {
 
 const deleteClient = async (req, res) => {
   const clientId = new ObjectId(req.params.id);
-  const response = await mongodb.getDb().db('bakery').collection('clients').remove({ _id: clientId }, true);
+  const response = await mongodb.getDb().db('bakery').collection('clients').deleteOne({ _id: clientId }, true);
   console.log(response);
   if (response.deletedCount > 0) {
     res.status(204).send();

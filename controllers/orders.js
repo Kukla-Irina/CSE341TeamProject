@@ -63,7 +63,7 @@ const createOrder = async (req, res) => {
   
   const deleteOrder = async (req, res) => {
     const orderId = new ObjectId(req.params.id);
-    const response = await mongodb.getDb().db('bakery').collection('orders').remove({ _id: orderId }, true);
+    const response = await mongodb.getDb().db('bakery').collection('orders').deleteOne({ _id: orderId }, true);
     console.log(response);
     if (response.deletedCount > 0) {
       res.status(204).send();
