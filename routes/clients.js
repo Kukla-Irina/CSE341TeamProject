@@ -7,9 +7,9 @@ router.get('/', clientsController.getAll);
 
 router.get('/:id', clientsController.getSingle);
 
-// router.post('/', clientsController.createClient);
+router.post('/', clientsController.createClient);
 
-// router.get('/:id', clientsController.updateClient);
+router.get('/:id', clientsController.updateClient);
 
 router.delete('/:id', clientsController.deleteClient);
 

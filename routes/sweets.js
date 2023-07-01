@@ -7,9 +7,9 @@ router.get('/', sweetsController.getAll);
 
 router.get('/:id', sweetsController.getSingle);
 
-// router.get('/', sweetsController.createCakeItem);
+router.get('/', sweetsController.createSweet);
 
-// router.get('/:id', sweetsController.updateCakeItem);
+router.get('/:id', sweetsController.updateSweet);
 
 router.delete('/:id', sweetsController.deleteSweet);
 
