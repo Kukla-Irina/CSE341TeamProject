@@ -11,18 +11,9 @@
     "http"
   ],
   "paths": {
-    "/api-docs": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
     "/cakes/": {
       "get": {
+        "tags": ["cakes"],
         "description": "",
         "produces": [
           "application/json"
@@ -32,10 +23,59 @@
             "description": "OK"
           }
         }
+      },
+      "post": {
+        "tags": ["cakes"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "flavor": {
+                  "example": "any"
+                },
+                "frosting": {
+                  "example": "any"
+                },
+                    "topping1": {
+                      "example": "any"
+                    },
+                    "topping2": {
+                      "example": "any"
+                    },
+                "numberOfLayers": {
+                  "example": "number"
+                }, 
+                    "kcal": {
+                      "example": "number"
+                    },
+                    "fat": {
+                      "example": "number"
+                    }
+                    ,
+                    "sugar": {
+                      "example": "number"
+                    }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/cakes/{id}": {
       "get": {
+        "tags": ["cakes"],
         "description": "",
         "produces": [
           "application/json"
@@ -55,6 +95,7 @@
         }
       },
       "delete": {
+        "tags": ["cakes"],
         "description": "",
         "parameters": [
           {
@@ -75,6 +116,7 @@
     },
     "/clients/": {
       "get": {
+        "tags": ["clients"],
         "description": "",
         "produces": [
           "application/json"
@@ -84,10 +126,49 @@
             "description": "OK"
           }
         }
+      },
+      "post": {
+        "tags": ["clients"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/clients/{id}": {
       "get": {
+        "tags": ["clients"],
         "description": "",
         "produces": [
           "application/json"
@@ -106,7 +187,52 @@
           }
         }
       },
+      "put": {
+        "tags": ["clients"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "address": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
       "delete": {
+        "tags": ["clients"],
         "description": "",
         "parameters": [
           {
@@ -127,6 +253,7 @@
     },
     "/orders/": {
       "get": {
+        "tags": ["orders"],
         "description": "",
         "produces": [
           "application/json"
@@ -140,6 +267,7 @@
     },
     "/orders/{id}": {
       "get": {
+        "tags": ["orders"],
         "description": "",
         "produces": [
           "application/json"
@@ -159,6 +287,7 @@
         }
       },
       "delete": {
+        "tags": ["orders"],
         "description": "",
         "parameters": [
           {
@@ -179,6 +308,7 @@
     },
     "/sweets/": {
       "get": {
+        "tags": ["sweets"],
         "description": "",
         "produces": [
           "application/json"
@@ -192,6 +322,7 @@
     },
     "/sweets/{id}": {
       "get": {
+        "tags": ["sweets"],
         "description": "",
         "produces": [
           "application/json"
@@ -211,6 +342,7 @@
         }
       },
       "delete": {
+        "tags": ["sweets"],
         "description": "",
         "parameters": [
           {

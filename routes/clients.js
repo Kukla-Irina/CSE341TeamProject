@@ -9,7 +9,7 @@ router.get('/:id', clientsController.getSingle);
 
 router.post('/', clientsController.createClient);
 
-router.get('/:id', clientsController.updateClient);
+router.put('/:id', clientsController.updateClient);
 
 router.delete('/:id', clientsController.deleteClient);
 

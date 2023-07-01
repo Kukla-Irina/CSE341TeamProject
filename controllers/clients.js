@@ -28,7 +28,7 @@ const createClient = async (req, res) => {
     address: req.body.address,
     email: req.body.email,
     phone: req.body.phone,
-    lastName: req.body.lastName,
+    lastName: req.body.lastName
   };
   const response = await mongodb.getDb().db('bakery').collection('clients').insertOne(client);
   if (response.acknowledged) {
@@ -43,9 +43,10 @@ const updateClient = async (req, res) => {
   // be aware of updateOne if you only want to update specific fields
   const client = {
     firstName: req.body.firstName,
-    lastName: req.body.lastName,
+    address: req.body.address,
     email: req.body.email,
-    address: req.body.address
+    phone: req.body.phone,
+    lastName: req.body.lastName
   };
   const response = await mongodb
     .getDb()

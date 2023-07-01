@@ -14,18 +14,29 @@ DELETE http://localhost:3000/orders/ HTTP/1.1
 
 // CLIENTS
 
-### Create contact 
-POST http://localhost:3030/clients HTTP/1.1
-
+### CREATE CLIENT
+POST http://localhost:3000/clients HTTP/1.1
 content-type: application/json
+
 {
     "firstName": "Anna",
     "address": "best place",
     "email": "anna@mail.ru",
     "phone": "89093457534",
-    "lastName": "Smirnova",
+    "lastName": "Smirnova"
 }
 
+### UPDATE CLIENT 
+PUT  http://localhost:3000/clients/649ff26e6cf171aae7d9b3fe HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Anna",
+    "address": "best place",
+    "email": "anna@mail.ru",
+    "phone": "89093457534",
+    "lastName": "Ivanova"
+}
 
 ### GET CLIENT BY CLIENT LAST NAME
 GET http://localhost:3000/clients/Petrova HTTP/1.1
@@ -43,6 +54,26 @@ GET http://localhost:3000/clients/64909485818e12a88f758e6b HTTP/1.1
 
 ### CREATE CAKE
 POST http://localhost:3000/cakes HTTP/1.1
+content-type: application/json
+
+{
+"flavor": "chocolate",
+  "frosting": "caramel",
+  "toppings": [
+    {
+      "topping1": "caramel",
+      "topping2": "strawberries"
+    }
+  ],
+  "numberOfLayers": "5",
+  "nutrients": [
+    {
+      "kcal": 555,
+      "fat": 56,
+      "sugar": 76
+    }
+  ]
+}
 
 ### UPDATE CAKE
 PUT http://localhost:3000/cakes/ HTTP/1.1

@@ -7,9 +7,9 @@ router.get('/', cakesController.getAll);
 
 router.get('/:id', cakesController.getSingle);
 
-router.get('/', cakesController.createCake);
+router.post('/', cakesController.createCake);
 
-router.get('/:id', cakesController.updateCake);
+router.put('/:id', cakesController.updateCake);
 
 router.delete('/:id', cakesController.deleteCake);
 
