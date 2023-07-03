@@ -11,9 +11,18 @@
     "http"
   ],
   "paths": {
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
     "/cakes/": {
       "get": {
-        "tags": ["cakes"],
         "description": "",
         "produces": [
           "application/json"
@@ -25,7 +34,6 @@
         }
       },
       "post": {
-        "tags": ["cakes"],
         "description": "",
         "parameters": [
           {
@@ -40,25 +48,15 @@
                 "frosting": {
                   "example": "any"
                 },
-                    "topping1": {
-                      "example": "any"
-                    },
-                    "topping2": {
-                      "example": "any"
-                    },
+                "toppings": {
+                  "example": "any"
+                },
                 "numberOfLayers": {
-                  "example": "number"
-                }, 
-                    "kcal": {
-                      "example": "number"
-                    },
-                    "fat": {
-                      "example": "number"
-                    }
-                    ,
-                    "sugar": {
-                      "example": "number"
-                    }
+                  "example": "any"
+                },
+                "nutrients": {
+                  "example": "any"
+                }
               }
             }
           }
@@ -75,7 +73,6 @@
     },
     "/cakes/{id}": {
       "get": {
-        "tags": ["cakes"],
         "description": "",
         "produces": [
           "application/json"
@@ -94,8 +91,56 @@
           }
         }
       },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "flavor": {
+                  "example": "any"
+                },
+                "frostingFlavor": {
+                  "example": "any"
+                },
+                "toppings": {
+                  "example": "any"
+                },
+                "numOfLayers": {
+                  "example": "any"
+                },
+                "calories": {
+                  "example": "any"
+                },
+                "gramsOfFat": {
+                  "example": "any"
+                },
+                "gramsOfSugar": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
       "delete": {
-        "tags": ["cakes"],
         "description": "",
         "parameters": [
           {
@@ -112,11 +157,11 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }}
+        }
+      }
     },
     "/clients/": {
       "get": {
-        "tags": ["clients"],
         "description": "",
         "produces": [
           "application/json"
@@ -128,7 +173,6 @@
         }
       },
       "post": {
-        "tags": ["clients"],
         "description": "",
         "parameters": [
           {
@@ -168,7 +212,6 @@
     },
     "/clients/{id}": {
       "get": {
-        "tags": ["clients"],
         "description": "",
         "produces": [
           "application/json"
@@ -188,7 +231,6 @@
         }
       },
       "put": {
-        "tags": ["clients"],
         "description": "",
         "parameters": [
           {
@@ -232,7 +274,6 @@
         }
       },
       "delete": {
-        "tags": ["clients"],
         "description": "",
         "parameters": [
           {
@@ -249,25 +290,24 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }}
+        }
+      }
     },
     "/orders/": {
       "get": {
-        "tags": ["orders"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
     "/orders/{id}": {
       "get": {
-        "tags": ["orders"],
         "description": "",
         "produces": [
           "application/json"
@@ -286,8 +326,50 @@
           }
         }
       },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "number": {
+                  "example": "any"
+                },
+                "clientName": {
+                  "example": "any"
+                },
+                "menuItem": {
+                  "example": "any"
+                },
+                "paymentData": {
+                  "example": "any"
+                },
+                "date": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
       "delete": {
-        "tags": ["orders"],
         "description": "",
         "parameters": [
           {
@@ -304,25 +386,24 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }}
+        }
+      }
     },
     "/sweets/": {
       "get": {
-        "tags": ["sweets"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
     "/sweets/{id}": {
       "get": {
-        "tags": ["sweets"],
         "description": "",
         "produces": [
           "application/json"
@@ -341,8 +422,41 @@
           }
         }
       },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "example": "any"
+                },
+                "quantity": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
       "delete": {
-        "tags": ["sweets"],
         "description": "",
         "parameters": [
           {
@@ -359,7 +473,8 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }}
+        }
+      }
     }
   }
 }

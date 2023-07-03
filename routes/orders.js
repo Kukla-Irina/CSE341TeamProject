@@ -9,7 +9,7 @@ router.get('/:id', ordersController.getSingle);
 
 router.get('/', ordersController.createOrder);
 
-router.get('/:id', ordersController.updateOrder);
+router.put('/:id', ordersController.updateOrder);
 
 router.delete('/:id', ordersController.deleteOrder);
 
