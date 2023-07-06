@@ -11,18 +11,9 @@
     "http"
   ],
   "paths": {
-    "/api-docs": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
     "/cakes/": {
       "get": {
+        "tags": ["cakes"],
         "description": "",
         "produces": [
           "application/json"
@@ -34,6 +25,7 @@
         }
       },
       "post": {
+        "tags": ["cakes"],
         "description": "",
         "parameters": [
           {
@@ -73,6 +65,7 @@
     },
     "/cakes/{id}": {
       "get": {
+        "tags": ["cakes"],
         "description": "",
         "produces": [
           "application/json"
@@ -92,6 +85,7 @@
         }
       },
       "put": {
+        "tags": ["cakes"],
         "description": "",
         "parameters": [
           {
@@ -141,6 +135,7 @@
         }
       },
       "delete": {
+        "tags": ["cakes"],
         "description": "",
         "parameters": [
           {
@@ -162,6 +157,7 @@
     },
     "/clients/": {
       "get": {
+        "tags": ["clients"],
         "description": "",
         "produces": [
           "application/json"
@@ -173,6 +169,7 @@
         }
       },
       "post": {
+        "tags": ["clients"],
         "description": "",
         "parameters": [
           {
@@ -212,6 +209,7 @@
     },
     "/clients/{id}": {
       "get": {
+        "tags": ["clients"],
         "description": "",
         "produces": [
           "application/json"
@@ -231,6 +229,7 @@
         }
       },
       "put": {
+        "tags": ["clients"],
         "description": "",
         "parameters": [
           {
@@ -274,6 +273,7 @@
         }
       },
       "delete": {
+        "tags": ["clients"],
         "description": "",
         "parameters": [
           {
@@ -295,6 +295,7 @@
     },
     "/orders/": {
       "get": {
+        "tags": ["orders"],
         "description": "",
         "responses": {
           "201": {
@@ -308,6 +309,7 @@
     },
     "/orders/{id}": {
       "get": {
+        "tags": ["orders"],
         "description": "",
         "produces": [
           "application/json"
@@ -327,6 +329,7 @@
         }
       },
       "put": {
+        "tags": ["orders"],
         "description": "",
         "parameters": [
           {
@@ -370,6 +373,7 @@
         }
       },
       "delete": {
+        "tags": ["orders"],
         "description": "",
         "parameters": [
           {
@@ -391,6 +395,7 @@
     },
     "/sweets/": {
       "get": {
+        "tags": ["sweets"],
         "description": "",
         "responses": {
           "201": {
@@ -404,6 +409,7 @@
     },
     "/sweets/{id}": {
       "get": {
+        "tags": ["sweets"],
         "description": "",
         "produces": [
           "application/json"
@@ -423,6 +429,7 @@
         }
       },
       "put": {
+        "tags": ["sweets"],
         "description": "",
         "parameters": [
           {
@@ -457,6 +464,7 @@
         }
       },
       "delete": {
+        "tags": ["sweets"],
         "description": "",
         "parameters": [
           {
