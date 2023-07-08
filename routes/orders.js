@@ -7,7 +7,7 @@ router.get('/', ordersController.getAll);
 
 router.get('/:id', ordersController.getSingle);
 
-router.get('/', ordersController.createOrder);
+router.post('/', ordersController.createOrder);
 
 router.put('/:id', ordersController.updateOrder);
 

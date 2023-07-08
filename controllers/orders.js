@@ -25,10 +25,10 @@ const getSingle = async (req, res) => {
 const createOrder = async (req, res) => {
     const order = {
       number: req.body.number,
-      clientName: req.body.clientName,
-      menuItem: req.body.menuItem,
-      paymentData: req.body.paymentData,
-      date: req.body.date
+      client: req.body.client,
+      type: req.body.type,
+      date: req.body.date,
+      payment: req.body.payment
     };
     const response = await mongodb.getDb().db('bakery').collection('orders').insertOne(order);
     if (response.acknowledged) {
@@ -42,11 +42,11 @@ const createOrder = async (req, res) => {
     const orderId = new ObjectId(req.params.id);
     // be aware of updateOne if you only want to update specific fields
     const order = {
-        number: req.body.number,
-        clientName: req.body.clientName,
-        menuItem: req.body.menuItem,
-        paymentData: req.body.paymentData,
-        date: req.body.date
+      number: req.body.number,
+      client: req.body.client,
+      type: req.body.type,
+      date: req.body.date,
+      payment: req.body.payment
     };
     const response = await mongodb
       .getDb()

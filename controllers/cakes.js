@@ -27,8 +27,13 @@ const createCake = async (req, res) => {
     flavor: req.body.flavor,
     frosting: req.body.frosting,
     toppings: req.body.toppings,
+    topping1: req.body.topping1,
+    topping2: req.body.topping2,
     numberOfLayers: req.body.numberOfLayers,
-    nutrients: req.body.nutrients
+    nutrients: req.body.nutrients,
+    kcal: req.body.kcal,
+    fat: req.body.fat,
+    sugar: req.body.sugar
   };
   const response = await mongodb.getDb().db('bakery').collection('cakes').insertOne(cake);
   if (response.acknowledged) {

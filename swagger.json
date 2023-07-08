@@ -14,7 +14,7 @@
     "/cakes/": {
       "get": {
         "tags": ["cakes"],
-        "description": "",
+        "description": "Get all cakes",
         "produces": [
           "application/json"
         ],
@@ -26,7 +26,7 @@
       },
       "post": {
         "tags": ["cakes"],
-        "description": "",
+        "description": "Add a cake object",
         "parameters": [
           {
             "name": "body",
@@ -66,7 +66,7 @@
     "/cakes/{id}": {
       "get": {
         "tags": ["cakes"],
-        "description": "",
+        "description": "Get a cake object by id",
         "produces": [
           "application/json"
         ],
@@ -86,14 +86,8 @@
       },
       "put": {
         "tags": ["cakes"],
-        "description": "",
+        "description": "Change a cake object",
         "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
           {
             "name": "body",
             "in": "body",
@@ -103,26 +97,20 @@
                 "flavor": {
                   "example": "any"
                 },
-                "frostingFlavor": {
+                "frosting": {
                   "example": "any"
                 },
                 "toppings": {
                   "example": "any"
                 },
-                "numOfLayers": {
+                "numberOfLayers": {
                   "example": "any"
                 },
-                "calories": {
-                  "example": "any"
-                },
-                "gramsOfFat": {
-                  "example": "any"
-                },
-                "gramsOfSugar": {
+                "nutrients": {
                   "example": "any"
                 }
               }
-            }
+            }          
           }
         ],
         "responses": {
@@ -136,7 +124,7 @@
       },
       "delete": {
         "tags": ["cakes"],
-        "description": "",
+        "description": "Delete a cake",
         "parameters": [
           {
             "name": "id",
@@ -158,7 +146,7 @@
     "/clients/": {
       "get": {
         "tags": ["clients"],
-        "description": "",
+        "description": "Get all clients info",
         "produces": [
           "application/json"
         ],
@@ -170,7 +158,7 @@
       },
       "post": {
         "tags": ["clients"],
-        "description": "",
+        "description": "Add a client",
         "parameters": [
           {
             "name": "body",
@@ -210,7 +198,7 @@
     "/clients/{id}": {
       "get": {
         "tags": ["clients"],
-        "description": "",
+        "description": "Find a client by id",
         "produces": [
           "application/json"
         ],
@@ -225,12 +213,15 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "put": {
         "tags": ["clients"],
-        "description": "",
+        "description": "Change a client info",
         "parameters": [
           {
             "name": "id",
@@ -265,7 +256,7 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Changed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -274,7 +265,7 @@
       },
       "delete": {
         "tags": ["clients"],
-        "description": "",
+        "description": "Delete a client",
         "parameters": [
           {
             "name": "id",
@@ -285,7 +276,7 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Deleted"
           },
           "500": {
             "description": "Internal Server Error"
@@ -296,7 +287,7 @@
     "/orders/": {
       "get": {
         "tags": ["orders"],
-        "description": "",
+        "description": "Get all orders",
         "responses": {
           "201": {
             "description": "Created"
@@ -305,12 +296,50 @@
             "description": "Internal Server Error"
           }
         }
-      }
+      },
+      "post": {
+        "tags": ["orders"],
+        "description": "Add an order",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "number": {
+                  "example": "any"
+                },
+                "client": {
+                  "example": "any"
+                },
+                "type": {
+                  "example": "any"
+                },
+                "date": {
+                  "example": "any"
+                },
+                "payment": {
+                  "example": "any"
+                }
+              }
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Created"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
     },
     "/orders/{id}": {
       "get": {
         "tags": ["orders"],
-        "description": "",
+        "description": "Get an order info by id",
         "produces": [
           "application/json"
         ],
@@ -330,7 +359,7 @@
       },
       "put": {
         "tags": ["orders"],
-        "description": "",
+        "description": "Add an order",
         "parameters": [
           {
             "name": "id",
@@ -347,16 +376,16 @@
                 "number": {
                   "example": "any"
                 },
-                "clientName": {
+                "client": {
                   "example": "any"
                 },
-                "menuItem": {
-                  "example": "any"
-                },
-                "paymentData": {
+                "type": {
                   "example": "any"
                 },
                 "date": {
+                  "example": "any"
+                },
+                "payment": {
                   "example": "any"
                 }
               }
@@ -365,7 +394,7 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Changed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -374,7 +403,7 @@
       },
       "delete": {
         "tags": ["orders"],
-        "description": "",
+        "description": "Delete an order",
         "parameters": [
           {
             "name": "id",
@@ -385,7 +414,7 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Deleted"
           },
           "500": {
             "description": "Internal Server Error"
@@ -396,7 +425,36 @@
     "/sweets/": {
       "get": {
         "tags": ["sweets"],
-        "description": "",
+        "description": "Get all sweets",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": ["sweets"],
+        "description": "Add a sweet",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "example": "any"
+                },
+                "quantity": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -410,7 +468,7 @@
     "/sweets/{id}": {
       "get": {
         "tags": ["sweets"],
-        "description": "",
+        "description": "Get a sweets object by id",
         "produces": [
           "application/json"
         ],
@@ -430,7 +488,7 @@
       },
       "put": {
         "tags": ["sweets"],
-        "description": "",
+        "description": "Change a sweet object",
         "parameters": [
           {
             "name": "id",
@@ -456,7 +514,7 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Changed"
           },
           "500": {
             "description": "Internal Server Error"
@@ -476,7 +534,7 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "Deleted"
           },
           "500": {
             "description": "Internal Server Error"

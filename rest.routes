@@ -92,6 +92,39 @@ PUT http://localhost:3000/sweets/ HTTP/1.1
 ### DELETE CAKE
 DELETE http://localhost:3000/sweets/ HTTP/1.1
 
+### CREATE ORDER
+POST http://localhost:3000/orders HTTP/1.1
+content-type: application/json
+
+{
+    "number": "5",
+    "client": "Irina",
+    "type": "chocolate cookie",
+    "date": "05.07.2023",
+    "payment": "43465356475675565"
+}
+
+### UPDATE ORDER 
+PUT  http://localhost:3000/orders/64a9de39233bb79beee22b66 HTTP/1.1
+content-type: application/json
+
+{
+    "number": "5",
+    "client": "Irina",
+    "type": "chocolate cake",
+    "date": "05.07.2023",
+    "payment": "43465356475675565"
+}
+
+### CREATE SWEET
+POST http://localhost:3000/sweets HTTP/1.1
+content-type: application/json
+
+{
+    "type": "chocolate",
+    "quantity": 34
+}
+
 //RENDER
 
 ### GET ORDERS
