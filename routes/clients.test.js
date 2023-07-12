@@ -1,30 +1,46 @@
-const {MongoClient} = require('mongodb');
+const { MongoClient } = require('mongodb');
 const clients = require('./clients');
+const dotenv = require('dotenv');
+dotenv.config();
 
 describe('insert', () => {
-  let connection;
-  let db;
+    let connection;
+    let db;
 
-  beforeAll(async () => {
-    connection = await MongoClient.connect(globalThis.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+    beforeAll(async () => {
+
+        connection = await MongoClient.connect(process.env.MONGODB_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        db = await connection.db('clients')
     });
-    db = await connection.db(globalThis.bakery);
-  });
+    afterAll(async() => {
+        await connection.close()
+    })
 
-  afterAll(async () => {
-    await connection.close();
-  });
+    it('should insert a new user into the clients collection', async () => {
+        const users = db.collection('clients');
 
-  it('should insert a doc into collection', async () => {
-    const clients = db.collection('clients');
+        const mockUser = {
+            id: 'some-user-id',
+            firstName: "Suzie",
+            lastName: "Brown",
+            email: "suzieBrown@gmail.com",
+            age: 25,
+        }
 
-    const mockUser = {_id: '64909485818e12a88f758e6a', name: 'Marina'};
-    await clients.insertOne(mockUser);
+        await users.insertOne(mockUser)
 
-    const insertedUser = await users.findOne({_id: '64909485818e12a88f758e6a'});
-    expect(insertedUser).toEqual(mockUser);
-  });
-});
+        const insertedUser = await users.findOne({ id: 'some-user-id' });
 
+        expect(insertedUser).toEqual(mockUser)
+    },
+        
+    it('should delete a user from the users collection', async () => {
+        const users = db.collection('clients')
+        await users.deleteMany({ id: 'some-user-id' })
+        const deletedUser = await users.findOne({ id: 'some-user-id' });
+        expect(deletedUser).toEqual(null)
+    })
+)})
