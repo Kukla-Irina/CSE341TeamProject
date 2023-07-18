@@ -4,7 +4,7 @@ const saveClient = (req, res, next) => {
     const validationRule = {
         firstName: 'required|string',
         address: 'required|string',
-        email: 'required|email',
+        email: 'required|string',
         phone: 'required|string',
         lastName: 'required|string'
     };

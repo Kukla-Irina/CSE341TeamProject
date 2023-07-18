@@ -8,9 +8,9 @@ router.get('/', ordersController.getAll);
 
 router.get('/:id', ordersController.getSingle);
 
-router.post('/', validation.saveOrder.ordersController.createOrder);
+router.post('/', ordersController.createOrder);
 
-router.put('/:id', validation.saveOrder.ordersController.updateOrder);
+router.put('/:id', ordersController.updateOrder);
 
 router.delete('/:id', ordersController.deleteOrder);
 

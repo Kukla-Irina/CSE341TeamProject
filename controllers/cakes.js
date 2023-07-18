@@ -26,11 +26,9 @@ const createCake = async (req, res) => {
   const cake = {
     flavor: req.body.flavor,
     frosting: req.body.frosting,
-    toppings: req.body.toppings,
     topping1: req.body.topping1,
     topping2: req.body.topping2,
     numberOfLayers: req.body.numberOfLayers,
-    nutrients: req.body.nutrients,
     kcal: req.body.kcal,
     fat: req.body.fat,
     sugar: req.body.sugar
@@ -48,12 +46,13 @@ const updateCake = async (req, res) => {
   // be aware of updateOne if you only want to update specific fields
   const cake = {
     flavor: req.body.flavor,
-    frostingFlavor: req.body.frostingFlavor,
-    toppings: req.body.toppings,
-    numOfLayers: req.body.numOfLayers,
-    calories: req.body.calories,
-    gramsOfFat: req.body.gramsOfFat,
-    gramsOfSugar: req.body.gramsOfSugar
+    frosting: req.body.frosting,
+    topping1: req.body.topping1,
+    topping2: req.body.topping2,
+    numberOfLayers: req.body.numberOfLayers,
+    kcal: req.body.kcal,
+    fat: req.body.fat,
+    sugar: req.body.sugar
   };
   const response = await mongodb
     .getDb()

@@ -8,9 +8,9 @@ router.get('/', sweetsController.getAll);
 
 router.get('/:id', sweetsController.getSingle);
 
-router.post('/', validation.saveSweet.sweetsController.createSweet);
+router.post('/', sweetsController.createSweet);
 
-router.put('/:id', validation.saveSweet.sweetsController.updateSweet);
+router.put('/:id', sweetsController.updateSweet);
 
 router.delete('/:id', sweetsController.deleteSweet);
 

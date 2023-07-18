@@ -10,9 +10,9 @@ router.get('/:id', clientsController.getSingle);
 
 //router.get('/:lastName', clientsController.getByName);
 
-router.post('/', validation.saveClient.clientsController.createClient);
+router.post('/', clientsController.createClient);
 
-router.put('/:id', validation.saveClient.clientsController.updateClient);
+router.put('/:id', clientsController.updateClient);
 
 router.delete('/:id', clientsController.deleteClient);
 
