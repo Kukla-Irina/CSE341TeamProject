@@ -22,23 +22,6 @@ const getSingle = async (req, res) => {
   });
 };
 
-// const getByName = async (req, res) => {
-//   try {
-//   const lastName = req.params.id;
-//   const result = await mongodb
-//     .getDb()
-//     .db('bakery')
-//     .collection('clients')
-//     .find({ lastName: lastName });
-//   result.toArray().then((lists) => {
-//     res.setHeader('Content-Type', 'application/json');
-//     res.status(200).json(lists[0]);
-//   });
-// } catch (err) { 
-//   res.status(500).json(err)
-// }
-// };
-
 const createClient = async (req, res) => {
   const client = {
     firstName: req.body.firstName,

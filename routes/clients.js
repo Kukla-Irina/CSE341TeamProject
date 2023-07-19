@@ -8,8 +8,6 @@ router.get('/', clientsController.getAll);
 
 router.get('/:id', clientsController.getSingle);
 
-//router.get('/:lastName', clientsController.getByName);
-
 router.post('/', clientsController.createClient);
 
 router.put('/:id', clientsController.updateClient);

@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --watchAll --detectOpenHandles",
     "start": "nodemon server.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
@@ -32,6 +32,7 @@
     "express-openid-connect": "^2.16.0",
     "mongodb": "^5.6.0",
     "prettier": "^2.8.8",
+    "request": "^2.88.2",
     "swagger-ui-express": "^4.6.3",
     "validatorjs": "^3.22.1"
   }
