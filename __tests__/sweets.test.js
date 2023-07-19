@@ -25,7 +25,7 @@ describe('Sweets', () => {
 
         const mockSweet = {
             type: "banana cookie",
-            qantity: 55
+            quantity: 55
         }
 
         await sweets.insertOne(mockSweet)
